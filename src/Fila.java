@@ -1,41 +1,41 @@
-public class Fila {
-    private No refEntrada;
+public class Fila<String> {
+    private No<String> refEntrada;
 
     public Fila() {
         this.refEntrada = null;
     }
 
-    public void enqueue(Object obj) {
-        No novoNo = new No(obj);
+    public void enqueue(String obj) {
+        No<String> novoNo = new No<>(obj);
         novoNo.setRefNo(refEntrada);
         refEntrada = novoNo;
     }
 
     @Override
-    public String toString() {
-        String s = "";
-        No aux = this.refEntrada;
+    public java.lang.String toString() {
+        StringBuilder s = new StringBuilder();
+        No<String> aux = this.refEntrada;
         if(this.refEntrada != null) {
             while(true) {
-                s += "[ No { objeto = "+ aux.getObject() + " } ]";
+                s.append("[ No { objeto = ").append(aux.getObject()).append(" } ]");
 
                 if(aux.getRefNo() != null) {
                     aux = aux.getRefNo();
                 } else {
-                    s += "null";
+                    s.append("null");
                     break;
                 }
             }
         } else {
-            s = "null";
+            s = new StringBuilder("null");
         }
 
-        return s;
+        return s.toString();
     }
 
-    public Object first() {
+    public String first() {
         if(!this.isEmpty()) {
-            No aux = this.refEntrada;
+            No<String> aux = this.refEntrada;
             while(true) {
                 if(aux.getRefNo() != null) {
                     aux = aux.getRefNo();
@@ -48,10 +48,10 @@ public class Fila {
         return null;
     }
 
-    public Object dequeue() {
+    public String dequeue() {
         if(!this.isEmpty()) {
-            No aux = this.refEntrada;
-            No NoAuxiliar = this.refEntrada;
+            No<String> aux = this.refEntrada;
+            No<String> NoAuxiliar = this.refEntrada;
             while(true) {
                 if(aux.getRefNo() != null) {
                     NoAuxiliar = aux;

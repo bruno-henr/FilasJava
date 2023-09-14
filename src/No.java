@@ -1,6 +1,6 @@
-public class No {
+public class No<String> {
     private Object object;
-    private No refNo;
+    private No<String> refNo;
 
     public No(Object object) {
         this.object = object;
@@ -8,25 +8,25 @@ public class No {
     }
 
     @Override
-    public String toString() {
+    public java.lang.String toString() {
         return "No{" +
                 "object=" + object +
                 '}';
     }
 
-    public Object getObject() {
-        return object;
+    public String getObject() {
+        return (String) object;
     }
 
     public void setObject(Object object) {
         this.object = object;
     }
 
-    public No getRefNo() {
+    public No<String> getRefNo() {
         return refNo;
     }
 
-    public void setRefNo(No refNo) {
+    public void setRefNo(No<String> refNo) {
         this.refNo = refNo;
     }
 }
